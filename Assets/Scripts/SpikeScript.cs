@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpikeScript : MonoBehaviour
 {
     [SerializeField] GameObject gameOverPanel;
+    public AudioSource breakSound;
+    public AudioSource bridgeSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,9 +17,11 @@ public class SpikeScript : MonoBehaviour
             return;
         } else if (other.CompareTag("Bridge"))
         {
+            bridgeSound.Play();
             return;
         }
 
+        breakSound.Play();
         Destroy(other.gameObject);
     }
 }

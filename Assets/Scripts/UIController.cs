@@ -8,11 +8,22 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject controlsPanel;
 
+    public AudioSource mainSound;
+    public AudioSource pauseSound;
+
+    private void Start()
+    {
+        pauseSound.Stop();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            mainSound.Pause();
+            pauseSound.Play();
+
             Time.timeScale = 0;
             pausePanel.SetActive(true);
         }
@@ -22,6 +33,9 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 1;
         pausePanel.SetActive(false);
+
+        pauseSound.Stop();
+        mainSound.Play();
     }
 
     public void OnRestartClicked()

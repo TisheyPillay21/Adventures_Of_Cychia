@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isOnGround = true;
 
+    public AudioSource runningSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour
             _rigidbody.AddForce(Vector3.up * 1500, ForceMode.Impulse); 
             isOnGround = false;
         }
+
 
         if (Input.GetKey(KeyCode.W) == false && Input.GetKey(KeyCode.S) == false && Input.GetKey(KeyCode.A) == false && Input.GetKey(KeyCode.D) == false)
         {

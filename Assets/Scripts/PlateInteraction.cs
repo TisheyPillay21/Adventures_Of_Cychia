@@ -9,6 +9,8 @@ public class PlateInteraction : MonoBehaviour
 
     public static bool isOn = false;
 
+    public AudioSource plateSound;
+
     public void OnTriggerStay(Collider other)
     {
         isOn = true;
@@ -19,9 +21,16 @@ public class PlateInteraction : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
+        plateSound.Play();
+
         isOn = false;
 
         on.SetActive(true);
         off.SetActive(false);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        plateSound.Play();
     }
 }

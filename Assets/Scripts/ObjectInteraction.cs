@@ -8,6 +8,9 @@ public class ObjectInteraction : MonoBehaviour
     [SerializeField] private GameObject on;
     [SerializeField] private GameObject off;
 
+    public AudioSource leverSound;
+    public AudioSource buttonSound;
+
     [SerializeField] GameObject interactionText;
 
     private float time = 0.2f;
@@ -27,22 +30,27 @@ public class ObjectInteraction : MonoBehaviour
             {
                 if (CompareTag("Lever 1"))
                 {
+                    leverSound.Play();
                     GameStateController.Instance.leverOneOn = !GameStateController.Instance.leverOneOn;
                 }
                 else if (CompareTag("Lever 2"))
                 {
+                    leverSound.Play();
                     GameStateController.Instance.leverTwoOn = !GameStateController.Instance.leverTwoOn;
                 }
                 else if (CompareTag("Lever 3"))
                 {
+                    leverSound.Play();
                     GameStateController.Instance.leverThreeOn = !GameStateController.Instance.leverThreeOn;
                 }
                 else if (CompareTag("Button 1"))
                 {
+                    buttonSound.Play();
                     GameStateController.Instance.buttonOneOn = !GameStateController.Instance.buttonOneOn;
                 }
                 else if (CompareTag("Button 2"))
                 {
+                    buttonSound.Play();
                     GameStateController.Instance.buttonTwoOn = !GameStateController.Instance.buttonTwoOn;
                 }
 

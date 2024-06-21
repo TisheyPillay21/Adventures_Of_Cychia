@@ -8,6 +8,8 @@ public class SignInteraction : MonoBehaviour
     [SerializeField] GameObject riddlePanel;
     [SerializeField] GameObject interactionText;
 
+    public AudioSource riddleSound;
+
     public void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag("Player"))
@@ -19,6 +21,8 @@ public class SignInteraction : MonoBehaviour
         {
             Debug.Log("E PRESSED");
             riddlePanel.SetActive(true);
+
+            riddleSound.Play();
         }
         
     }
@@ -27,5 +31,5 @@ public class SignInteraction : MonoBehaviour
     {
         interactionText.SetActive(false);
         riddlePanel.SetActive(false);
-    }
+    } 
 }
